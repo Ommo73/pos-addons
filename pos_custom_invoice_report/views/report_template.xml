@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--Copyright 2020 Artem Rafailov <https://it-projects.info/team/Ommo73>-->
+<!--License LGPL-3.0 or later (http://www.gnu.org/licenses/lgpl.html).-->
+<odoo>
+    <data>
+        <template id="custom_invoice_report" inherit_id="account.report_invoice_document">
+            <xpath expr="//address" position="replace">
+            </xpath>
+            <xpath expr="//div[hasclass('page')]" position="replace">
+                <link rel="stylesheet" type="text/css" href="/pos_custom_invoice_report/static/src/css/custom_report.css"/>
+                <div style="width:200px;" class="top-block">kek</div>
+                <div style="width:400px;margin-left:10px;" class="top-block">kek</div>
+                <div style="width:200px;margin-left:10px;" class="top-block">kek</div>
+                <div style="clear:both"/>
+                <div class="table-container">
+                    <table class="table-b0 " cellpadding="4" cellspacing="1">
+                          <tr class="tr-tlr table-header">
+                             <th style="width:50px;" class="cell-tl">CANTIDAD</th>
+                             <th style="width:250px;" class="cell-t">DESCRIPCION</th>
+                             <th style="width:80px;" class="cell-t">PRECIO UNITARIO</th>
+                             <th style="width:50px;" class="cell-t">EXENTAS</th>
+                             <th style="width:60px;" class="cell-t">IVA 5%</th>
+                             <th style="width:70px;" class="cell-tr">IVA 10%</th>
+                          </tr>
+                          <tr class="tr-lr">
+                             <th class="cell-l">Company</th>
+                             <th class="cell-b4">Q1</th>
+                             <th class="cell-b4">Q2</th>
+                             <th class="cell-b4">Q3</th>
+                             <th class="cell-b4">Q4</th>
+                             <th class="cell-r">Q4</th>
+                          </tr>
+                          <tr class="tr-b0">
+                             <th colspan="2" class="cell-b0"><strong>TOTAL A PAGAR</strong> (en letras) guaraníes:</th>
+                             <th class="cell-b4">SUB-TOTALES</th>
+                             <th class="cell-b4"> </th>
+                             <th class="cell-b4"> </th>
+                             <th class="cell-r"> </th>
+                          </tr>
+                          <tr class="tr-b0">
+                             <th colspan="4" class="cell-b0"> </th>
+                             <th class="cell-b4">TOTAL A PAGAR</th>
+                             <th class="cell-r"> </th>
+                          </tr>
+                          <tr class="tr-b0">
+                             <th colspan="6" class="cell-b0"> </th>
+                          </tr>
+                          <tr class="tr-b0">
+                             <th colspan="6" class="cell-b0">Liquidación del IVA: (5%)     Liquidación del IVA: (10%)    Total del IVA:</th>
+                          </tr>
+                    </table>
+                </div>
+
+            </xpath>
+        </template>
+
+    </data>
+</odoo>
