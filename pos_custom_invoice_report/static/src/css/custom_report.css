@@ -35,8 +35,8 @@
 
 .table-container {
     border:solid 1px black;
-    display: block
-    ;border-radius:5px;
+    display: block;
+    border-radius:5px;
     max-width:826px;
     margin-top:10px;
 }
@@ -55,6 +55,7 @@
     border:solid 1px black;
     float: left;
     border-radius:5px;
+    padding-left:5px;
 }
 
 .tr-tlr {
@@ -77,5 +78,13 @@
 
 .table-header {
     text-align: center;
+}
+
+.checkbox-t {
+    height: 12px;
+    width: 12px;
+    border:solid 1px black;
+    display:inline-block;
+    border-radius:5px;
 }
 
