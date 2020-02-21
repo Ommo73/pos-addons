@@ -1,5 +1,5 @@
 .cell-b4{
-    border:solid 1px black;
+    border:solid 1px white;
 }
 
 .cell-b0{
@@ -7,66 +7,66 @@
 }
 
 .cell-tl{
-    border:solid 1px black;
+    border:solid 1px white;
     border-top:0;
     border-left:0;
 }
 
 .cell-tr{
-    border:solid 1px black;
+    border:solid 1px white;
     border-top:0;
     border-right:0;
 }
 
 .cell-t{
-    border:solid 1px black;
+    border:solid 1px white;
     border-top:0;
 }
 
 .cell-r{
-    border:solid 1px black;
+    border:solid 1px white;
     border-right:0;
 }
 
 .cell-l{
-    border:solid 1px black;
+    border:solid 1px white;
     border-right:0;
 }
 
 .table-container {
-    border:solid 1px black;
+    border:solid 1px white;
     display: block;
     border-radius:5px;
-    max-width:740px;
-    margin-top:5px;
+    max-width:632px;
+    margin-top:4px;
 }
 
 .table-b0 {
     border:0;
     border-collapse: collapse;
     display: table;
-    width:739px;
+    width:635px;
     font-size:9px;
     font-weight: normal;
 }
 
 .top-block {
-    height:80px;
-    border:solid 1px black;
+    height:76px;
+    border:solid 1px white;
     float: left;
     border-radius:5px;
     padding-left:5px;
 }
 
 .tr-tlr {
-    border:solid 1px black;
+    border:solid 1px white;
     border-top:0;
     border-left:0;
     border-right:0;
 }
 
 .tr-lr {
-    border:solid 1px black;
+    border:solid 1px white;
     border-left:0;
     height:160px;
     border-right:0;
@@ -83,7 +83,7 @@
 .checkbox-t {
     height: 12px;
     width: 12px;
-    border:solid 1px black;
+    border:solid 1px white;
     display:inline-block;
     border-radius:5px;
 }

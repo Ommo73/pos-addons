@@ -7,57 +7,52 @@
             <xpath expr="//address" position="replace">
             </xpath>
             <xpath expr="//div[hasclass('page')]" position="replace">
-                <div style="margin-left: auto;margin-right: auto;width:743px;">
+                <link rel="stylesheet" type="text/css" href="/pos_custom_invoice_report/static/src/css/custom_report.css"/>
+                <div style="margin-left: auto;margin-right: auto;width:653px;">
                     <t t-set="o" t-value="o.with_context({'lang': lang})"/>
-                    <link rel="stylesheet" type="text/css" href="/pos_custom_invoice_report/static/src/css/custom_report.css"/>
-                    <div style="width:200px;text-align:right;font-size:11px;padding-right:5px;" class="top-block"></div>
-                    <div style="width:350px;margin-left:10px;" class="top-block">
+                    <div style="width:168px;text-align:right;font-size:11px;padding-right:5px;" class="top-block"></div>
+                    <div style="width:296px;margin-left:5px;" class="top-block">
                         <table style="width:100%;text-align:left;font-size:9px;">
-                            <tr><td>Fecha: <t t-esc="o.date_invoice"/></td><td>RUC: <span t-field="o.number"/></td></tr>
-                            <tr><td>Cliente: <t t-esc="o.partner_id.name"/></td><td></td></tr>
-                            <tr><td colspan="2">Dirección: <t t-esc="o.partner_id.street"/> <t t-esc="o.partner_id.city"/> <t t-esc="o.partner_id.country_id.name"/></td></tr>
-                            <tr><td>Teléfono: <t t-esc="o.partner_id.phone"/></td><td>Vendedor:</td></tr>
-                            <tr><td colspan="2">Cond. de Venta: Contado <span class="checkbox-t"/> Crédito <span class="checkbox-t"/> Remisión No</td></tr>
+                            <tr><td><span style="color:white;">Fecha:</span>F <t t-esc="o.date_invoice"/></td><td><span style="color:white;">RUC:</span> <span style="margin-left:30px" t-field="o.number"/></td></tr>
+                            <tr><td><span style="color:white;">Cliente:</span> <t t-esc="o.partner_id.name"/></td><td></td></tr>
+                            <tr><td colspan="2"><span style="color:white;">Dirección: </span><t t-esc="o.partner_id.street"/> <t t-esc="o.partner_id.city"/> <t t-esc="o.partner_id.country_id.name"/></td></tr>
+                            <tr><td><span style="color:white;">Teléfono:</span> <t t-esc="o.partner_id.phone"/></td><td><span style="color:white;">Vendedor:</span></td></tr>
+                            <tr><td colspan="2"><span style="color:white;">Cond. de Venta: Contado</span> <span class="checkbox-t"/> <span style="color:white;">Crédito </span><span class="checkbox-t"/></td></tr>
                        </table>
                     </div>
-                    <div style="width:170px;margin-left:10px;" class="top-block">
+                    <div style="width:163px;margin-left:5px;" class="top-block">
                         <table style="width:100%;text-align:center;font-size:7px;">
-                            <tr><td>TIMBRADO №</td></tr>
-                            <tr><td>Fecha Inicio Vigencia:</td></tr>
-                            <tr><td>Fecha Fin Vigencia:</td></tr>
-                            <tr><td>RUC:</td></tr>
-                            <tr><td style="font-size:11px;font-weight:bold;">FACTURA</td></tr>
-                            <tr><td style="font-size:11px;text-align:left;">001-001</td></tr>
+
                        </table>
                     </div>
                     <div style="clear:both"/>
                     <div class="table-container">
                         <table class="table-b0 " cellpadding="4" cellspacing="1">
                             <tr class="tr-tlr table-header">
-                                <td style="width:50px;" class="cell-tl">CANTIDAD</td>
-                                <td style="width:250px;" class="cell-t">DESCRIPCION</td>
-                                <td style="width:80px;" class="cell-t">PRECIO UNITARIO</td>
-                                <td style="width:50px;" class="cell-t">EXENTAS</td>
-                                <td style="width:70px;" class="cell-t">IVA 5%</td>
-                                <td style="width:70px;" class="cell-tr">IVA 10%</td>
+                                <td style="width:30px;color:white;" class="cell-tl">CANTIDAD</td>
+                                <td style="width:240px;color:white;" class="cell-t">DESCRIPCION</td>
+                                <td style="width:100px;color:white;" class="cell-t">PRECIO UNITARIO</td>
+                                <td style="width:65px;color:white;" class="cell-t">EXENTAS</td>
+                                <td style="width:85px;color:white;" class="cell-t">IVA 5%</td>
+                                <td style="width:85px;color:white;" class="cell-tr">IVA 10%</td>
                             </tr>
                             <tr class="tr-lr">
                                 <td colspan="6">
-                                <table style="width:740px;">
+                                <table style="width:635px;padding:5px;">
                                 <t t-foreach="o.invoice_line_ids" t-as="line">
                                 <tr>
-                                <td style="width:50px;padding:5px;text-align:right;">
+                                <td style="width:30px;text-align:right;padding-right:10px;">
                                     <span t-field="line.quantity"/>
                                 </td>
-                                <td style="width:250px;padding:5px;">
+                                <td style="width:240px;padding-left:20px;">
                                     <span t-field="line.name"/>
                                 </td>
-                                <td style="width:80px;padding:5px;text-align:right;">
+                                <td style="width:100px;padding-right:20px;text-align:right;">
                                     <span t-field="line.price_unit" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
                                 </td>
-                                <td style="width:50px;"> </td>
-                                <td style="width:60px;"> </td>
-                                <td style="width:70px;padding:5px;text-align:right;">
+                                <td style="width:65px;"> </td>
+                                <td style="width:85px;"> </td>
+                                <td style="width:85px;padding-right:30px;text-align:right;">
                                     <span t-field="line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
                                     <span t-field="line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
                                 </td>
@@ -67,75 +62,70 @@
                                 </td>
                             </tr>
                             <tr class="tr-b0">
-                                <td colspan="2" class="cell-b0"><strong>TOTAL A PAGAR</strong> (en letras) guaraníes:</td>
-                                <td class="cell-b4">SUB-TOTALES</td>
+                                <td colspan="2" class="cell-b0" style="color:white;"><strong>TOTAL A PAGAR</strong> (en letras) guaraníes:</td>
+                                <td class="cell-b4" style="color:white;">SUB-TOTALES</td>
                                 <td class="cell-b4"> </td>
                                 <td class="cell-b4"> </td>
                                 <td class="cell-r"><span t-field="o.amount_total"/></td>
                             </tr>
                             <tr class="tr-b0">
                                 <td colspan="4" class="cell-b0"> </td>
-                                <td class="cell-b4">TOTAL A PAGAR</td>
+                                <td class="cell-b4"  style="color:white;">TOTAL A PAGAR</td>
                                 <td class="cell-r"><span t-field="o.amount_total"/></td>
                             </tr>
                             <tr class="tr-b0">
-                                <td colspan="6" class="cell-b0"> </td>
+                                <td colspan="6" class="cell-b0"><span style="color:white;">.</span></td>
                             </tr>
                             <tr class="tr-b0">
-                                <td colspan="2" class="cell-b0">Liquidación del IVA: (5%)<span style="float:right;">Liquidación del IVA: (10%)<span t-esc="o.amount_by_group[0][3]"/></span></td><td colspan="2" class="cell-b0"></td><td colspan="2" class="cell-b0">Total del IVA: <span t-esc="o.amount_by_group[0][3]" /></td>
+                                <td colspan="2" class="cell-b0"><span style="color:white;">Liquidación del IVA: (5%)</span><span style="float:right;"><span style="color:white;">Liquidación del IVA:</span><span t-esc="o.amount_by_group[0][3]"/></span></td><td colspan="2" class="cell-b0"></td><td colspan="2" class="cell-b0"><span t-esc="o.amount_by_group[0][3]" /></td>
                             </tr>
                         </table>
                     </div>
 
-                    <div style="margin-top:20px;">
-                    <div style="width:200px;text-align:right;font-size:11px;padding-right:5px;" class="top-block"></div>
-                    <div style="width:350px;margin-left:10px;" class="top-block">
+                    <div style="margin-top:35px;">
+                    <div style="width:168px;text-align:right;font-size:11px;padding-right:5px;" class="top-block"></div>
+                    <div style="width:296px;margin-left:5px;" class="top-block">
                         <table style="width:100%;text-align:left;font-size:9px;">
-                            <tr><td>Fecha: <t t-esc="o.date_invoice"/></td><td>RUC: <span t-field="o.number"/></td></tr>
-                            <tr><td>Cliente: <t t-esc="o.partner_id.name"/></td><td></td></tr>
-                            <tr><td colspan="2">Dirección: <t t-esc="o.partner_id.street"/> <t t-esc="o.partner_id.city"/> <t t-esc="o.partner_id.country_id.name"/></td></tr>
-                            <tr><td>Teléfono: <t t-esc="o.partner_id.phone"/></td><td>Vendedor:</td></tr>
-                            <tr><td colspan="2">Cond. de Venta: Contado <span class="checkbox-t"/> Crédito <span class="checkbox-t"/> Remisión No</td></tr>
+                            <tr><td><span style="color:white;">Fecha:</span>F <t t-esc="o.date_invoice"/></td><td><span style="color:white;">RUC:</span> <span style="margin-left:30px" t-field="o.number"/></td></tr>
+                            <tr><td><span style="color:white;">Cliente:</span> <t t-esc="o.partner_id.name"/></td><td></td></tr>
+                            <tr><td colspan="2"><span style="color:white;">Dirección: </span><t t-esc="o.partner_id.street"/> <t t-esc="o.partner_id.city"/> <t t-esc="o.partner_id.country_id.name"/></td></tr>
+                            <tr><td><span style="color:white;">Teléfono:</span> <t t-esc="o.partner_id.phone"/></td><td><span style="color:white;">Vendedor:</span></td></tr>
+                            <tr><td colspan="2"><span style="color:white;">Cond. de Venta: Contado</span> <span class="checkbox-t"/> <span style="color:white;">Crédito </span><span class="checkbox-t"/></td></tr>
                        </table>
                     </div>
-                    <div style="width:170px;margin-left:10px;" class="top-block">
+                    <div style="width:163px;margin-left:5px;" class="top-block">
                         <table style="width:100%;text-align:center;font-size:7px;">
-                            <tr><td>TIMBRADO №</td></tr>
-                            <tr><td>Fecha Inicio Vigencia:</td></tr>
-                            <tr><td>Fecha Fin Vigencia:</td></tr>
-                            <tr><td>RUC:</td></tr>
-                            <tr><td style="font-size:11px;font-weight:bold;">FACTURA</td></tr>
-                            <tr><td style="font-size:11px;text-align:left;">001-001</td></tr>
+
                        </table>
                     </div>
                     <div style="clear:both"/>
                     <div class="table-container">
                         <table class="table-b0 " cellpadding="4" cellspacing="1">
                             <tr class="tr-tlr table-header">
-                                <td style="width:50px;" class="cell-tl">CANTIDAD</td>
-                                <td style="width:250px;" class="cell-t">DESCRIPCION</td>
-                                <td style="width:80px;" class="cell-t">PRECIO UNITARIO</td>
-                                <td style="width:50px;" class="cell-t">EXENTAS</td>
-                                <td style="width:70px;" class="cell-t">IVA 5%</td>
-                                <td style="width:70px;" class="cell-tr">IVA 10%</td>
+                                <td style="width:30px;color:white;" class="cell-tl">CANTIDAD</td>
+                                <td style="width:240px;color:white;" class="cell-t">DESCRIPCION</td>
+                                <td style="width:100px;color:white;" class="cell-t">PRECIO UNITARIO</td>
+                                <td style="width:65px;color:white;" class="cell-t">EXENTAS</td>
+                                <td style="width:85px;color:white;" class="cell-t">IVA 5%</td>
+                                <td style="width:85px;color:white;" class="cell-tr">IVA 10%</td>
                             </tr>
                             <tr class="tr-lr">
                                 <td colspan="6">
-                                <table style="width:740px;">
+                                <table style="width:635px;padding:5px;">
                                 <t t-foreach="o.invoice_line_ids" t-as="line">
                                 <tr>
-                                <td style="width:50px;padding:5px;text-align:right;">
+                                <td style="width:30px;text-align:right;padding-right:10px;">
                                     <span t-field="line.quantity"/>
                                 </td>
-                                <td style="width:250px;padding:5px;">
+                                <td style="width:240px;padding-left:20px;">
                                     <span t-field="line.name"/>
                                 </td>
-                                <td style="width:80px;padding:5px;text-align:right;">
+                                <td style="width:100px;padding-right:20px;text-align:right;">
                                     <span t-field="line.price_unit" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
                                 </td>
-                                <td style="width:50px;"> </td>
-                                <td style="width:60px;"> </td>
-                                <td style="width:70px;padding:5px;text-align:right;">
+                                <td style="width:65px;"> </td>
+                                <td style="width:85px;"> </td>
+                                <td style="width:85px;padding-right:30px;text-align:right;">
                                     <span t-field="line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
                                     <span t-field="line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
                                 </td>
@@ -145,76 +135,71 @@
                                 </td>
                             </tr>
                             <tr class="tr-b0">
-                                <td colspan="2" class="cell-b0"><strong>TOTAL A PAGAR</strong> (en letras) guaraníes:</td>
-                                <td class="cell-b4">SUB-TOTALES</td>
+                                <td colspan="2" class="cell-b0" style="color:white;"><strong>TOTAL A PAGAR</strong> (en letras) guaraníes:</td>
+                                <td class="cell-b4" style="color:white;">SUB-TOTALES</td>
                                 <td class="cell-b4"> </td>
                                 <td class="cell-b4"> </td>
                                 <td class="cell-r"><span t-field="o.amount_total"/></td>
                             </tr>
                             <tr class="tr-b0">
                                 <td colspan="4" class="cell-b0"> </td>
-                                <td class="cell-b4">TOTAL A PAGAR</td>
+                                <td class="cell-b4"  style="color:white;">TOTAL A PAGAR</td>
                                 <td class="cell-r"><span t-field="o.amount_total"/></td>
                             </tr>
                             <tr class="tr-b0">
-                                <td colspan="6" class="cell-b0"> </td>
+                                <td colspan="6" class="cell-b0"><span style="color:white;">.</span></td>
                             </tr>
                             <tr class="tr-b0">
-                                <td colspan="2" class="cell-b0">Liquidación del IVA: (5%)<span style="float:right;">Liquidación del IVA: (10%)<span t-esc="o.amount_by_group[0][3]"/></span></td><td colspan="2" class="cell-b0"></td><td colspan="2" class="cell-b0">Total del IVA: <span t-esc="o.amount_by_group[0][3]" /></td>
+                                <td colspan="2" class="cell-b0"><span style="color:white;">Liquidación del IVA: (5%)</span><span style="float:right;"><span style="color:white;">Liquidación del IVA:</span><span t-esc="o.amount_by_group[0][3]"/></span></td><td colspan="2" class="cell-b0"></td><td colspan="2" class="cell-b0"><span t-esc="o.amount_by_group[0][3]" /></td>
                             </tr>
                         </table>
                     </div>
                     </div>
 
-                    <div style="margin-top:20px;">
-                    <div style="width:200px;text-align:right;font-size:11px;padding-right:5px;" class="top-block"></div>
-                    <div style="width:350px;margin-left:10px;" class="top-block">
+                    <div style="margin-top:35px;">
+                    <div style="width:168px;text-align:right;font-size:11px;padding-right:5px;" class="top-block"></div>
+                    <div style="width:296px;margin-left:5px;" class="top-block">
                         <table style="width:100%;text-align:left;font-size:9px;">
-                            <tr><td>Fecha: <t t-esc="o.date_invoice"/></td><td>RUC: <span t-field="o.number"/></td></tr>
-                            <tr><td>Cliente: <t t-esc="o.partner_id.name"/></td><td></td></tr>
-                            <tr><td colspan="2">Dirección: <t t-esc="o.partner_id.street"/> <t t-esc="o.partner_id.city"/> <t t-esc="o.partner_id.country_id.name"/></td></tr>
-                            <tr><td>Teléfono: <t t-esc="o.partner_id.phone"/></td><td>Vendedor:</td></tr>
-                            <tr><td colspan="2">Cond. de Venta: Contado <span class="checkbox-t"/> Crédito <span class="checkbox-t"/> Remisión No</td></tr>
+                            <tr><td><span style="color:white;">Fecha:</span>F <t t-esc="o.date_invoice"/></td><td><span style="color:white;">RUC:</span> <span style="margin-left:30px" t-field="o.number"/></td></tr>
+                            <tr><td><span style="color:white;">Cliente:</span> <t t-esc="o.partner_id.name"/></td><td></td></tr>
+                            <tr><td colspan="2"><span style="color:white;">Dirección: </span><t t-esc="o.partner_id.street"/> <t t-esc="o.partner_id.city"/> <t t-esc="o.partner_id.country_id.name"/></td></tr>
+                            <tr><td><span style="color:white;">Teléfono:</span> <t t-esc="o.partner_id.phone"/></td><td><span style="color:white;">Vendedor:</span></td></tr>
+                            <tr><td colspan="2"><span style="color:white;">Cond. de Venta: Contado</span> <span class="checkbox-t"/> <span style="color:white;">Crédito </span><span class="checkbox-t"/></td></tr>
                        </table>
                     </div>
-                    <div style="width:170px;margin-left:10px;" class="top-block">
+                    <div style="width:163px;margin-left:5px;" class="top-block">
                         <table style="width:100%;text-align:center;font-size:7px;">
-                            <tr><td>TIMBRADO №</td></tr>
-                            <tr><td>Fecha Inicio Vigencia:</td></tr>
-                            <tr><td>Fecha Fin Vigencia:</td></tr>
-                            <tr><td>RUC:</td></tr>
-                            <tr><td style="font-size:11px;font-weight:bold;">FACTURA</td></tr>
-                            <tr><td style="font-size:11px;text-align:left;">001-001</td></tr>
+
                        </table>
                     </div>
                     <div style="clear:both"/>
                     <div class="table-container">
                         <table class="table-b0 " cellpadding="4" cellspacing="1">
                             <tr class="tr-tlr table-header">
-                                <td style="width:50px;" class="cell-tl">CANTIDAD</td>
-                                <td style="width:250px;" class="cell-t">DESCRIPCION</td>
-                                <td style="width:80px;" class="cell-t">PRECIO UNITARIO</td>
-                                <td style="width:50px;" class="cell-t">EXENTAS</td>
-                                <td style="width:70px;" class="cell-t">IVA 5%</td>
-                                <td style="width:70px;" class="cell-tr">IVA 10%</td>
+                                <td style="width:30px;color:white;" class="cell-tl">CANTIDAD</td>
+                                <td style="width:240px;color:white;" class="cell-t">DESCRIPCION</td>
+                                <td style="width:100px;color:white;" class="cell-t">PRECIO UNITARIO</td>
+                                <td style="width:65px;color:white;" class="cell-t">EXENTAS</td>
+                                <td style="width:85px;color:white;" class="cell-t">IVA 5%</td>
+                                <td style="width:85px;color:white;" class="cell-tr">IVA 10%</td>
                             </tr>
                             <tr class="tr-lr">
                                 <td colspan="6">
-                                <table style="width:740px;">
+                                <table style="width:635px;padding:5px;">
                                 <t t-foreach="o.invoice_line_ids" t-as="line">
                                 <tr>
-                                <td style="width:50px;padding:5px;text-align:right;">
+                                <td style="width:30px;text-align:right;padding-right:10px;">
                                     <span t-field="line.quantity"/>
                                 </td>
-                                <td style="width:250px;padding:5px;">
+                                <td style="width:240px;padding-left:20px;">
                                     <span t-field="line.name"/>
                                 </td>
-                                <td style="width:80px;padding:5px;text-align:right;">
+                                <td style="width:100px;padding-right:20px;text-align:right;">
                                     <span t-field="line.price_unit" t-options='{"widget": "monetary", "display_currency": o.currency_id}'/>
                                 </td>
-                                <td style="width:50px;"> </td>
-                                <td style="width:60px;"> </td>
-                                <td style="width:70px;padding:5px;text-align:right;">
+                                <td style="width:65px;"> </td>
+                                <td style="width:85px;"> </td>
+                                <td style="width:85px;padding-right:30px;text-align:right;">
                                     <span t-field="line.price_subtotal" groups="account.group_show_line_subtotals_tax_excluded"/>
                                     <span t-field="line.price_total" groups="account.group_show_line_subtotals_tax_included"/>
                                 </td>
@@ -224,22 +209,22 @@
                                 </td>
                             </tr>
                             <tr class="tr-b0">
-                                <td colspan="2" class="cell-b0"><strong>TOTAL A PAGAR</strong> (en letras) guaraníes:</td>
-                                <td class="cell-b4">SUB-TOTALES</td>
+                                <td colspan="2" class="cell-b0" style="color:white;"><strong>TOTAL A PAGAR</strong> (en letras) guaraníes:</td>
+                                <td class="cell-b4" style="color:white;">SUB-TOTALES</td>
                                 <td class="cell-b4"> </td>
                                 <td class="cell-b4"> </td>
                                 <td class="cell-r"><span t-field="o.amount_total"/></td>
                             </tr>
                             <tr class="tr-b0">
                                 <td colspan="4" class="cell-b0"> </td>
-                                <td class="cell-b4">TOTAL A PAGAR</td>
+                                <td class="cell-b4"  style="color:white;">TOTAL A PAGAR</td>
                                 <td class="cell-r"><span t-field="o.amount_total"/></td>
                             </tr>
                             <tr class="tr-b0">
-                                <td colspan="6" class="cell-b0"> </td>
+                                <td colspan="6" class="cell-b0"><span style="color:white;">.</span></td>
                             </tr>
                             <tr class="tr-b0">
-                                <td colspan="2" class="cell-b0">Liquidación del IVA: (5%)<span style="float:right;">Liquidación del IVA: (10%)<span t-esc="o.amount_by_group[0][3]"/></span></td><td colspan="2" class="cell-b0"></td><td colspan="2" class="cell-b0">Total del IVA: <span t-esc="o.amount_by_group[0][3]" /></td>
+                                <td colspan="2" class="cell-b0"><span style="color:white;">Liquidación del IVA: (5%)</span><span style="float:right;"><span style="color:white;">Liquidación del IVA:</span><span t-esc="o.amount_by_group[0][3]"/></span></td><td colspan="2" class="cell-b0"></td><td colspan="2" class="cell-b0"><span t-esc="o.amount_by_group[0][3]" /></td>
                             </tr>
                         </table>
                     </div>
@@ -256,6 +241,25 @@
             </xpath>
         </template>
 
+        <record id="point_of_sale.pos_invoice_report" model="ir.actions.report">
+            <field name="paperformat_id" eval="ref('pos_custom_invoice_report.paperformat_custom_invoice')"/>
+        </record>
+
+        <record id="paperformat_custom_invoice" model="report.paperformat">
+            <field name="name">A4 invoice</field>
+            <field name="default" eval="True" />
+            <field name="format">A4</field>
+            <field name="page_height">0</field>
+            <field name="page_width">0</field>
+            <field name="orientation">Portrait</field>
+            <field name="margin_top">34.5</field>
+            <field name="margin_bottom">28</field>
+            <field name="margin_left">11</field>
+            <field name="margin_right">7</field>
+            <field name="header_line" eval="False" />
+            <field name="header_spacing">35</field>
+            <field name="dpi">90</field>
+        </record>
 
     </data>
 </odoo>
