@@ -241,10 +241,6 @@
             </xpath>
         </template>
 
-        <record id="point_of_sale.pos_invoice_report" model="ir.actions.report">
-            <field name="paperformat_id" eval="ref('pos_custom_invoice_report.paperformat_custom_invoice')"/>
-        </record>
-
         <record id="paperformat_custom_invoice" model="report.paperformat">
             <field name="name">A4 invoice</field>
             <field name="default" eval="True" />
@@ -259,6 +255,10 @@
             <field name="header_line" eval="False" />
             <field name="header_spacing">35</field>
             <field name="dpi">90</field>
+        </record>
+
+        <record id="point_of_sale.pos_invoice_report" model="ir.actions.report">
+            <field name="paperformat_id" eval="ref('pos_custom_invoice_report.paperformat_custom_invoice')"/>
         </record>
 
     </data>
