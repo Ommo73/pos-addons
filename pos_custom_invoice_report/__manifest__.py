@@ -14,7 +14,7 @@
     "license": "LGPL-3",
     # "price": 9.00,
     # "currency": "EUR",
-    "depends": ["point_of_sale"],
+    "depends": ["point_of_sale", "sale_stock"],
     "external_dependencies": {"python": [], "bin": []},
     "data": [
         "views/report_template.xml",
