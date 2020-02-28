@@ -77,7 +77,7 @@
                                 <td colspan="6" class="cell-b0"><span style="color:white;">.</span></td>
                             </tr>
                             <tr class="tr-b0">
-                                <td colspan="2" class="cell-b0"><span style="color:white;">Liquidación del IVA: (5%)</span><span style="float:right;"><span style="color:white;">Liquidación del IVA:</span><span t-esc="o.amount_by_group[0][3]"/></span></td><td colspan="2" class="cell-b0"></td><td colspan="2" class="cell-b0"><span t-esc="o.amount_by_group[0][3]" /></td>
+                                <td colspan="2" class="cell-b0"><span style="color:white;">Liquidación del IVA: (5%)</span><span style="float:right;"><span style="color:white;">Liquidación del IVA:</span><t t-if="o.amount_by_group[0][3]"><span t-esc="o.amount_by_group[0][3]"/></t></span></td><td colspan="2" class="cell-b0"></td><td colspan="2" class="cell-b0"><t t-if="o.amount_by_group[0][3]"><span t-esc="o.amount_by_group[0][3]" /></t></td>
                             </tr>
                         </table>
                     </div>
@@ -150,7 +150,7 @@
                                 <td colspan="6" class="cell-b0"><span style="color:white;">.</span></td>
                             </tr>
                             <tr class="tr-b0">
-                                <td colspan="2" class="cell-b0"><span style="color:white;">Liquidación del IVA: (5%)</span><span style="float:right;"><span style="color:white;">Liquidación del IVA:</span><span t-esc="o.amount_by_group[0][3]"/></span></td><td colspan="2" class="cell-b0"></td><td colspan="2" class="cell-b0"><span t-esc="o.amount_by_group[0][3]" /></td>
+                                <td colspan="2" class="cell-b0"><span style="color:white;">Liquidación del IVA: (5%)</span><span style="float:right;"><span style="color:white;">Liquidación del IVA:</span><t t-if="o.amount_by_group[0][3]"><span t-esc="o.amount_by_group[0][3]"/></t></span></td><td colspan="2" class="cell-b0"></td><td colspan="2" class="cell-b0"><t t-if="o.amount_by_group[0][3]"><span t-esc="o.amount_by_group[0][3]" /></t></td>
                             </tr>
                         </table>
                     </div>
@@ -224,7 +224,7 @@
                                 <td colspan="6" class="cell-b0"><span style="color:white;">.</span></td>
                             </tr>
                             <tr class="tr-b0">
-                                <td colspan="2" class="cell-b0"><span style="color:white;">Liquidación del IVA: (5%)</span><span style="float:right;"><span style="color:white;">Liquidación del IVA:</span><span t-esc="o.amount_by_group[0][3]"/></span></td><td colspan="2" class="cell-b0"></td><td colspan="2" class="cell-b0"><span t-esc="o.amount_by_group[0][3]" /></td>
+                                <td colspan="2" class="cell-b0"><span style="color:white;">Liquidación del IVA: (5%)</span><span style="float:right;"><span style="color:white;">Liquidación del IVA:</span><t t-if="o.amount_by_group[0][3]"><span t-esc="o.amount_by_group[0][3]"/></t></span></td><td colspan="2" class="cell-b0"></td><td colspan="2" class="cell-b0"><t t-if="o.amount_by_group[0][3]"><span t-esc="o.amount_by_group[0][3]" /></t></td>
                             </tr>
                         </table>
                     </div>
@@ -235,9 +235,11 @@
         </template>
 
         <template id="custom_external_layout" inherit_id="web.external_layout_standard">
-            <xpath expr="//div[hasclass('header')]" position="replace">
+            <xpath expr="//div[hasclass('header')]" position="attributes">
+                <attribute name="style">display:none;</attribute>
             </xpath>
-            <xpath expr="//div[hasclass('footer')]" position="replace">
+            <xpath expr="//div[hasclass('footer')]" position="attributes">
+                <attribute name="style">display:none;</attribute>
             </xpath>
         </template>
 
